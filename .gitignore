@@ -1,0 +1,3 @@
+tmp
+*.bundle
+ext/graphql_bridge/target/

@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    graphql_bridge (0.1.0)
+      rb_sys (~> 0.9.39)
+
+GEM
+  remote: http://www.rubygems.org/
+  specs:
+    rake (13.0.6)
+    rake-compiler (1.2.1)
+      rake
+    rb_sys (0.9.64)
+
+PLATFORMS
+  arm64-darwin-22
+
+DEPENDENCIES
+  graphql_bridge!
+  rake-compiler (~> 1.2.0)
+
+BUNDLED WITH
+   2.3.26

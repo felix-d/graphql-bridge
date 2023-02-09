@@ -3,19 +3,14 @@
 require "test/unit"
 require_relative "../lib/graphql_bridge"
 
-class BlankTest < Test::Unit::TestCase
-
-  def test_blank?
-    assert { "".blank? }
-    assert { "   ".blank? }
-    assert { "  \n\t  \r ".blank? }
-    assert { "　".blank? }
-    assert { "\u00a0".blank? }
-    assert { " ".encode("UTF-16LE").blank? }
+class GraphQLBridgeTest < Test::Unit::TestCase
+  def test_it_works
+    assert(parse_fixture("query"))
   end
 
-  def test_not_blank?
-    assert { !"a".blank? }
-    assert { !"my value".encode("UTF-16LE").blank? }
+  private
+
+  def parse_fixture(name)
+    GraphQLBridge.parse(File.read(File.join(__dir__, "fixtures/#{name}.gql")))
   end
 end

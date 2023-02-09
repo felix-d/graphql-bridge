@@ -1,0 +1,3 @@
+{
+    "rust-analyzer.linkedProjects": ["ext/graphql_bridge/Cargo.toml"]
+}
