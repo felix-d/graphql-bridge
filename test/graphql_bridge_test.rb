@@ -3,14 +3,20 @@
 require "test/unit"
 require_relative "../lib/graphql_bridge"
 
+
+class Schema
+  def some_field
+    puts "resolving some field"
+  end
+end
+
 class GraphQLBridgeTest < Test::Unit::TestCase
   def test_it_works
-    assert(parse_fixture("query"))
-  end
-
-  private
-
-  def parse_fixture(name)
-    GraphQLBridge.parse(File.read(File.join(__dir__, "fixtures/#{name}.gql")))
+    bridge = GraphQLBridge.new(Schema.new)
+    assert(bridge.execute(<<~GQL))
+      {
+        someField
+      }
+    GQL
   end
 end

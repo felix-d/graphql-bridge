@@ -10,3 +10,4 @@ crate-type = ["cdylib"]
 [dependencies]
 magnus = "0.4"
 apollo-parser = "0.4"
+convert_case = "0.6.0"
