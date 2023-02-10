@@ -11,3 +11,5 @@ crate-type = ["cdylib"]
 magnus = "0.4"
 apollo-parser = "0.4"
 convert_case = "0.6.0"
+json = "0.12.4"
+serde_json = "1.0.93"
