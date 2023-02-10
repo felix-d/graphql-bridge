@@ -13,7 +13,7 @@ end
 class GraphQLBridgeTest < Test::Unit::TestCase
   def test_it_works
     bridge = GraphQLBridge.new(Schema.new)
-    assert(bridge.execute(<<~GQL))
+    assert(bridge.eval(<<~GQL))
       {
         someField
       }

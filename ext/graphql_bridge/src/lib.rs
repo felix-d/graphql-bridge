@@ -6,6 +6,7 @@ use magnus::{
 };
 use apollo_parser::{Parser, SyntaxTree, ast::{Document, Definition, OperationDefinition, SelectionSet, Selection, Field}};
 use convert_case::{Case, Casing};
+
 #[magnus::wrap(class = "GraphQLBridge")]
 struct GraphQLBridge {
     schema: Value,
@@ -18,7 +19,7 @@ impl GraphQLBridge {
         }
     }
 
-    fn execute(&self, input: RString) -> Result<bool, Error> {
+    fn eval(&self, input: RString) -> Result<bool, Error> {
         let ast = self.parse_input(input)?;
         self.eval_root(ast.document());
         Ok(true)
@@ -73,6 +74,6 @@ impl GraphQLBridge {
 fn init() -> Result<(), Error> {
     let class = define_class("GraphQLBridge", Default::default())?;
     class.define_singleton_method("new", function!(GraphQLBridge::new, 1))?;
-    class.define_method("execute", method!(GraphQLBridge::execute, 1))?;
+    class.define_method("eval", method!(GraphQLBridge::eval, 1))?;
     Ok(())
 }
